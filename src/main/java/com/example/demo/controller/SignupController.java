@@ -31,17 +31,14 @@ public class SignupController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Passwords do not match");
         }
 
-        // Convert LocalDate to Instant
         Instant birthdayInstant = birthday.atStartOfDay(ZoneId.systemDefault()).toInstant();
 
-        // Create a new user and set the properties
         User user = new User();
         user.setName(username);
         user.setEmail(email);
         user.setBirthday(birthdayInstant);
-        user.setPassword(password1); // In a real application, hash the password
+        user.setPassword(password1);
 
-        // Save the user
         userService.saveUser(user);
 
         return "redirect:/";
