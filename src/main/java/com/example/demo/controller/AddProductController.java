@@ -25,7 +25,7 @@ public class AddProductController {
     }
 
     @GetMapping("/addProduct")
-    public String addProduct(){
+    public String addProduct(Model model){
         return "addProduct";
     }
 
